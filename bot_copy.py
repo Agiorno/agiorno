@@ -4,12 +4,11 @@
 from __future__ import unicode_literals
 from flask import Flask, request
 import telebot
+from monkey import TOKEN
 
 app = Flask(__name__)
 app.debug = True
 
-
-TOKEN = "1200141862:AAE3YD6hY9GJBJ5o8JU-GjKn570vujltz1k"
 
 bot = telebot.TeleBot(TOKEN)	
 
