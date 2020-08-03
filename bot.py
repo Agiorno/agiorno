@@ -4,7 +4,7 @@
 from __future__ import unicode_literals
 from flask import Flask, request
 import telebot
-from monkey import TOKEN
+from monkey import TOKEN, URL
 
 app = Flask(__name__)
 app.debug = True
@@ -12,7 +12,6 @@ app.debug = True
 
 bot = telebot.TeleBot(TOKEN)	
 
-URL = '161.35.17.195'
 
 
 
