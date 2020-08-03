@@ -4,15 +4,17 @@
 from __future__ import unicode_literals
 from flask import Flask, request
 import telebot
-from monkey import TOKEN, URL
 
 app = Flask(__name__)
 app.debug = True
 
 
+TOKEN = "1200141862:AAE3YD6hY9GJBJ5o8JU-GjKn570vujltz1k"
+
 bot = telebot.TeleBot(TOKEN)	
 
-a=[]
+URL = '161.35.17.195'
+
 
 
 #WebHook
@@ -21,14 +23,14 @@ def webhook_handler():
     if request.method == "POST": 
         update = telebot.types.Update.de_json(request.get_json(force=True))
         bot.process_new_updates([update])
-        a.append(str(update.message))
         # update = telegram.Update.de_json(request.get_json(force=True), bot)
         try:
             # kb = ReplyKeyboardMarkup([["Обновить"]])
             chat_id = update.message.chat.id 
             text = update.message.text
             userid = update.message.from_user.id
-            bot.send_message(chat_id=chat_id, text="hello")
+	        username = update.message.from_user.username
+            bot.send_message(chat_id=chat_id, text=username)
         except Exception as e:
             print(e)
     return 'ok' 
@@ -45,6 +47,6 @@ def set_webhook():
 
 @app.route('/') 
 def index(): 
-    return '%s' % str 
+    return '<h1>HEY</h1>' 
 
 
