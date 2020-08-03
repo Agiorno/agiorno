@@ -22,16 +22,22 @@ def webhook_handler():
         update = telebot.types.Update.de_json(request.get_json(force=True))
         bot.process_new_updates([update])
         a.append(str(update.message))
-        # update = telegram.Update.de_json(request.get_json(force=True), bot)
-        try:
-            # kb = ReplyKeyboardMarkup([["Обновить"]])
-            chat_id = update.message.chat.id 
-            text = update.message.text
-            userid = update.message.from_user.id
-            bot.send_message(chat_id=chat_id, text="hello")
-        except Exception as e:
-            print(e)
+        # try:
+        #     chat_id = update.message.chat.id 
+        #     text = update.message.text
+        #     userid = update.message.from_user.id
+            # bot.send_message(chat_id=chat_id, text="hello")
+        # except Exception as e:
+        #     print(e)
     return 'ok' 
+
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+	bot.reply_to(message, "Howdy, how are you doing?")
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+	bot.reply_to(message, message.text)
 
 #Set_webhook 
 @app.route('/set_webhook', methods=['GET', 'POST']) 
