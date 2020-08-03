@@ -29,15 +29,15 @@ def webhook_handler():
             # bot.send_message(chat_id=chat_id, text="hello")
         # except Exception as e:
         #     print(e)
-    return 'ok' 
+#     return 'ok' 
 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-	bot.reply_to(message, "Howdy, how are you doing?")
+# @bot.message_handler(commands=['start', 'help'])
+# def send_welcome(message):
+# 	bot.reply_to(message, "Howdy, how are you doing?")
 
-@bot.message_handler(func=lambda message: True)
-def echo_all(message):
-	bot.reply_to(message, message.text)
+# @bot.message_handler(func=lambda message: True)
+# def echo_all(message):
+# 	bot.reply_to(message, message.text)
 
 #Set_webhook 
 @app.route('/set_webhook', methods=['GET', 'POST']) 
