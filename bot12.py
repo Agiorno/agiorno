@@ -5,16 +5,14 @@ from __future__ import unicode_literals
 from flask import Flask, request
 import telegram
 from telegram.replykeyboardmarkup import ReplyKeyboardMarkup
+from monkey import TOKEN, URL
 
 app = Flask(__name__)
 app.debug = True
 
-TOKEN = "1114545163:AAFwRXupgXrPe_UPdekL-M1AwBCqTlQbeSA"
 
 global bot
 bot = telegram.Bot(token=TOKEN)
-
-URL = '161.35.17.195'
 
 
 #WebHook
