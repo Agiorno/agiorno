@@ -23,7 +23,7 @@ def webhook_handler():
         bot.process_new_updates([update])
         a.append(str(update.message))
         try:
-        #     chat_id = update.message.chat.id 
+            chat_id = update.message.chat.id 
         #     text = update.message.text
         #     userid = update.message.from_user.id
             bot.send_message(chat_id=chat_id, text="hello")
