@@ -27,8 +27,8 @@ def webhook_handler():
         #     text = update.message.text
         #     userid = update.message.from_user.id
             bot.send_message(chat_id=chat_id, text="hello")
-        # except Exception as e:
-        #     print(e)
+        except Exception as e:
+            print(e)
     return 'ok' 
 
 # @bot.message_handler(commands=['start', 'help'])
